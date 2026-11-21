@@ -15,10 +15,12 @@
 
 | Your starting point | What Codex does |
 | --- | --- |
-| **An empty research folder** | Creates a Git repository for the first model, folders for experiments, simulations, figures, and references, and three project documents in your language. |
-| **An existing project** | Reviews the code, simulation projects, research records, figures, and references, then asks you to confirm the active programs, research progress, and proposed changes before writing or moving any files. Running the skill again follows the same review process. |
+| **An empty research folder** | Creates the first model's Git repository, the workspace folders, and three project documents in your language. The handoff shows the actual directory tree. If you ask to see the plan first, the skill previews the layout and waits for your approval. |
+| **An existing project** | Reviews the workspace and shows the proposed directory tree in chat. It asks you to confirm the active programs, research progress, and planned changes before writing or moving any files. |
 
-After setting up the layout or completing approved changes, the skill reviews the workspace again in read-only mode. In the same handoff, it shares any useful follow-up suggestions and asks about ongoing logging preferences if you have yet to set them. You choose which changes to apply and what, when, and where to record. The project's `AGENTS.md` carries those working agreements into future tasks.
+The first proposal shows the main layout using the project's actual names. The tree marks which files or folders the skill would create, move, copy, or keep in place. Follow-up proposals show the affected branches and wait for your approval.
+
+After setup or approved changes, the skill reviews the workspace again in read-only mode. It shares useful follow-up suggestions and asks about logging preferences if you have yet to set them. The project's `AGENTS.md` carries your confirmed working agreements into future tasks.
 
 ## Quick start
 
