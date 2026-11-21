@@ -15,8 +15,8 @@
 
 | Your starting point | What Codex does |
 | --- | --- |
-| **An empty research folder** | Creates a Git repository for the first model, folders for experiments, figures, and references, and three project documents in your language. |
-| **An existing project** | Reviews the code, research notes, figures, and references, then asks you to confirm the active programs, research progress, and proposed changes before writing or moving any files. Running the skill again follows the same review process. |
+| **An empty research folder** | Creates a Git repository for the first model, folders for experiments, simulations, figures, and references, and three project documents in your language. |
+| **An existing project** | Reviews the code, simulation projects, research notes, figures, and references, then asks you to confirm the active programs, research progress, and proposed changes before writing or moving any files. Running the skill again follows the same review process. |
 
 ## Quick start
 
@@ -38,6 +38,10 @@ research-project/
 │   └── output/        Results produced by this model's programs
 ├── PROG_temp/         Exploratory programs and experiments
 │   └── output/        Results produced by those experiments
+├── simulation/        Simulator projects and their required files
+│   ├── LTspice/       Example tool folder, created when needed
+│   ├── Multisim/      Example tool folder, created when needed
+│   └── PSpice/        Example tool folder, created when needed
 ├── output/            Project deliverables, such as meeting notes
 ├── figures/           Selected project figures for manuscripts and reports
 ├── references/        Project literature and supporting references
@@ -49,6 +53,8 @@ research-project/
 ```
 
 When you adopt a new model, the skill can set up `PROG2/` with its own Git history and keep `PROG1/` as a read-only archive. A program in `PROG2/` writes to `PROG2/output/` even when it reads data from `PROG1/`.
+
+Use `simulation/` for schematics, netlists, and tool-specific scripts. Create a subfolder for each simulator you use and keep each project with its dependencies. Manage general MATLAB or Python code in the appropriate `PROG*` directory. When reorganizing an existing simulation project, the skill checks its dependencies and proposes moves for your approval.
 
 Keep the current status and next steps in `CONTEXT.md`. For a substantial topic such as an algorithm refinement, link from the overview to its detailed note in `context/` after you approve the split.
 

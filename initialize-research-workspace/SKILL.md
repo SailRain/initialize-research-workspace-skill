@@ -19,11 +19,11 @@ Inspect the target's directory entries, including hidden entries. Check whether 
 
 **Empty standalone folder.** Take the direct route when the folder is empty or contains only a regular `.DS_Store` file, and it has no existing Git boundary. Preserve the metadata file and carry out these steps once the target and language are clear.
 
-1. Create `PROG1/output/`, `PROG_temp/output/`, and the root `output/`, `figures/`, and `references/`. Create the figure and literature directories even when there are no files to organize.
+1. Create `PROG1/output/`, `PROG_temp/output/`, and the root `output/`, `figures/`, `references/`, and `simulation/`. Add simulator subdirectories only for software the project uses.
 2. Initialize Git inside `PROG1/` with `git -C <target>/PROG1 init`. Leave commits, remote configuration, and publishing to the owner.
 3. Write the three root documents from the templates below. Use `PROG1/` as the active formal directory. Use localized placeholders for unknown project facts. The owner can fill them in later.
 
-**Existing project or Git workspace.** Use this route for every other target, including an initialized project on a repeat visit. Keep the first pass read-only. Inspect existing instructions, research notes (including linked notes under `context/`), program entry points and dependencies, data and manuscript locations, project figures and literature, output conventions, and repository boundaries as needed. Use listings and metadata for large datasets. For Git status, use `git --no-optional-locks -C <target> status --short` to avoid refreshing the index on disk. Keep the inventory and proposed changes in the conversation.
+**Existing project or Git workspace.** Use this route for every other target, including an initialized project on a repeat visit. Keep the first pass read-only. Inspect existing instructions, research notes (including linked notes under `context/`), program entry points and dependencies, simulator projects, data and manuscript locations, project figures and literature, output conventions, and repository boundaries as needed. Use listings and metadata for large datasets. For Git status, use `git --no-optional-locks -C <target> status --short` to avoid refreshing the index on disk. Keep the inventory and proposed changes in the conversation.
 
 Present the following findings and ask the owner to confirm all three before the first write.
 
@@ -40,6 +40,12 @@ For an existing project, include any missing root `figures/` and `references/` d
 - Propose moving loose project figures to the root `figures/`. Keep original program-generated figures in the producing program's `output/`. When a figure is selected for a manuscript or presentation, copy it to `figures/` if the owner approves the copy.
 - Propose organizing existing local research literature in the root `references/`. Keep bibliographies such as `.bib` files and other path-dependent assets at their current locations by default. If a move would affect a manuscript, program, or document, include the affected links and their updates in the proposal. Apply the approved move and link updates together.
 
+## Organize simulator projects
+
+Include a missing root `simulation/` in the reorganization plan for an existing workspace. Use one subdirectory per simulator in use, such as `simulation/LTspice/`, `simulation/Multisim/`, or `simulation/PSpice/`. Store simulator-specific projects, schematics, netlists, model libraries, and supporting scripts together with their local dependencies. Keep general research programs, including MATLAB and Python numerical simulations and their outputs, under the existing formal and exploratory program directories.
+
+Identify the simulator from project metadata and companion files. Ask the owner about ambiguous assignments before proposing a move. Reuse existing destinations when they fit. Include each project and its dependencies in the approved migration plan, preserve their relative layout, and coordinate any required path updates.
+
 ## Write the workspace documents
 
 Use the following three assets as content templates. Localize them while writing them into the research root. For an existing project, adapt the approved sections to its confirmed directories, sources, and research status. In particular, replace the fresh-project `PROG1/` default with the confirmed current directory.
@@ -54,4 +60,4 @@ When a topic needs a detailed record, propose the note and its link for owner ap
 
 ## Verify and hand off
 
-Check the resulting structure against the approved changes. For each formal repository, compare the resolved path from `git -C <model> rev-parse --show-toplevel` with the model directory itself. Check that `PROG_temp/` has no independent repository and that the applicable output directories exist. Check that `figures/` and `references/` exist on fresh setups and where approved for existing projects. Verify that moved or copied assets are in their approved destinations, dependent paths still resolve, and original program outputs remain in place. Open any new `CONTEXT.md` links to confirm that they reach the intended topic notes. Confirm the documents use the chosen language and reference the correct active model. Report the actual changes, output locations, and unresolved decisions. Identify any validation that could not be completed.
+Check the resulting structure against the approved changes. For each formal repository, compare the resolved path from `git -C <model> rev-parse --show-toplevel` with the model directory itself. Check that `PROG_temp/` has no independent repository and that the applicable output directories exist. Check that `figures/`, `references/`, and `simulation/` exist on fresh setups and where approved for existing projects. Verify that moved or copied assets are in their approved destinations, including simulator projects under the correct software folders. Check that dependent paths still resolve and original program outputs remain in place. Open any new `CONTEXT.md` links to confirm that they reach the intended topic notes. Confirm the documents use the chosen language and reference the correct active model. Report the actual changes, output locations, and unresolved decisions. Identify any validation that could not be completed.
