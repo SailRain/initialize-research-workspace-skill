@@ -19,30 +19,39 @@ Inspect the target's directory entries, including hidden entries. Check whether 
 
 **Empty standalone folder.** Take the direct route when the folder is empty or contains only a regular `.DS_Store` file, and it has no existing Git boundary. Preserve the metadata file and carry out these steps once the target and language are clear.
 
-1. Create `PROG1/output/`, `PROG_temp/output/`, and the root `output/`.
+1. Create `PROG1/output/`, `PROG_temp/output/`, and the root `output/`, `figures/`, and `references/`. Create the figure and literature directories even when there are no files to organize.
 2. Initialize Git inside `PROG1/` with `git -C <target>/PROG1 init`. Leave commits, remote configuration, and publishing to the owner.
 3. Write the three root documents from the templates below. Use `PROG1/` as the active formal directory. Use localized placeholders for unknown project facts. The owner can fill them in later.
 
-**Existing project or Git workspace.** Use this route for every other target, including an initialized project on a repeat visit. Keep the first pass read-only. Inspect existing instructions, research notes, program entry points and dependencies, data and manuscript locations, output conventions, and repository boundaries as needed. Use listings and metadata for large datasets. For Git status, use `git --no-optional-locks -C <target> status --short` to avoid refreshing the index on disk. Keep the inventory and proposed changes in the conversation.
+**Existing project or Git workspace.** Use this route for every other target, including an initialized project on a repeat visit. Keep the first pass read-only. Inspect existing instructions, research notes (including linked notes under `context/`), program entry points and dependencies, data and manuscript locations, project figures and literature, output conventions, and repository boundaries as needed. Use listings and metadata for large datasets. For Git status, use `git --no-optional-locks -C <target> status --short` to avoid refreshing the index on disk. Keep the inventory and proposed changes in the conversation.
 
 Present the following findings and ask the owner to confirm all three before the first write.
 
 1. **Current programs.** Identify candidate active models and entry points, exploratory code, and historical versions. Cite the evidence and mark unresolved alternatives. Directory numbers and modification times alone cannot establish which model is active.
 2. **Research progress.** Summarize what the available sources support, identify open questions, and distinguish implementation, verification, and inclusion in a manuscript. Ask the owner to confirm, correct, or mark the status as unknown.
-3. **Reorganization plan.** List proposed creations and edits. For each migration, name the source, destination, operation, affected readers or dependencies, and any Git implications. For existing guidance, identify the sections to add or revise. Call out unresolved ownership of data or outputs.
+3. **Reorganization plan.** List proposed creations and edits, including any new topic notes and links from `CONTEXT.md`. For each migration, name the source, destination, whether to move or copy, affected links or dependencies, and any Git implications. Flag same-name conflicts for the owner to resolve and preserve the existing files until a resolution is approved. For existing guidance, identify the sections to add or revise. Call out unresolved ownership of data or outputs.
 
 Treat a correction to the inventory as a correction of fact. Apply changes only when the active programs, research status, and actual operations are all confirmed. If the user confirms only part of this, carry that answer forward and ask for the outstanding decision. On the next turn, recheck affected paths before executing the agreed operations. Preserve existing histories, uncommitted work, and owner-authored guidance. If an enclosing repository already tracks a proposed model or exploratory folder, explain that relationship and settle its handling in the plan. A repeat visit that reveals no needed changes ends with a read-only summary.
+
+## Organize figures and references
+
+For an existing project, include any missing root `figures/` and `references/` directories in the reorganization plan.
+
+- Propose moving loose project figures to the root `figures/`. Keep original program-generated figures in the producing program's `output/`. When a figure is selected for a manuscript or presentation, copy it to `figures/` if the owner approves the copy.
+- Propose organizing existing local research literature in the root `references/`. Keep bibliographies such as `.bib` files and other path-dependent assets at their current locations by default. If a move would affect a manuscript, program, or document, include the affected links and their updates in the proposal. Apply the approved move and link updates together.
 
 ## Write the workspace documents
 
 Use the following three assets as content templates. Localize them while writing them into the research root. For an existing project, adapt the approved sections to its confirmed directories, sources, and research status. In particular, replace the fresh-project `PROG1/` default with the confirmed current directory.
 
 - [AGENTS.md](assets/templates/AGENTS.md) defines the active model and entry point, program promotion, independent model repositories, output ownership, manuscript sources, verification, and cross-chat maintenance rules.
-- [CONTEXT.md](assets/templates/CONTEXT.md) records confirmed progress and decisions by topic, with evidence, verification status, next steps, and source locations. Seed existing research history with owner-confirmed information only.
+- [CONTEXT.md](assets/templates/CONTEXT.md) summarizes confirmed progress, key decisions, verification status, next steps, and sources by topic. Seed existing research history with owner-confirmed information only.
 - [TERMINOLOGY.md](assets/templates/TERMINOLOGY.md) records approved terms, wording, usage, and sources. An empty terminology table is appropriate until the owner confirms entries.
 
 The active formal model gets its own numbered repository. Keep exploratory work in `PROG_temp/` until the owner confirms promotion. On an owner-confirmed model switch, create the next formal repository and record the active model explicitly. Earlier numbered directories then serve as read-only archives. Every producing program writes to its own directory's `output/`, including an exploratory program or a program that reads inputs from an older model. Project-level deliverables prepared outside program runs go into the root `output/`.
 
+When a topic needs a detailed record, propose the note and its link for owner approval. Create the root `context/` directory when the first note is approved. Keep a short progress entry and a relative link such as `[Algorithm refinement](context/algorithm-refinement.md)` in `CONTEXT.md`. Record the detailed chronology, decisions and tradeoffs, evidence, and open questions in the topic file. Reuse existing notes on repeat visits. Localize new topic notes and link text using the chosen project language.
+
 ## Verify and hand off
 
-Check the resulting structure against the approved changes. For each formal repository, compare the resolved path from `git -C <model> rev-parse --show-toplevel` with the model directory itself. Check that `PROG_temp/` has no independent repository and that the applicable output directories exist. Confirm the documents use the chosen language and reference the correct active model. Report the actual changes, output locations, and unresolved decisions. Identify any validation that could not be completed.
+Check the resulting structure against the approved changes. For each formal repository, compare the resolved path from `git -C <model> rev-parse --show-toplevel` with the model directory itself. Check that `PROG_temp/` has no independent repository and that the applicable output directories exist. Check that `figures/` and `references/` exist on fresh setups and where approved for existing projects. Verify that moved or copied assets are in their approved destinations, dependent paths still resolve, and original program outputs remain in place. Open any new `CONTEXT.md` links to confirm that they reach the intended topic notes. Confirm the documents use the chosen language and reference the correct active model. Report the actual changes, output locations, and unresolved decisions. Identify any validation that could not be completed.

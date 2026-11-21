@@ -15,8 +15,8 @@
 
 | Your starting point | What Codex does |
 | --- | --- |
-| **An empty research folder** | Creates a Git repository for the first model, a folder for experiments, and three project documents in your language. |
-| **An existing project** | Reads the code and research notes, then asks you to confirm the active programs, research progress, and proposed changes before it edits any files. Running the skill again follows the same review process. |
+| **An empty research folder** | Creates a Git repository for the first model, folders for experiments, figures, and references, and three project documents in your language. |
+| **An existing project** | Reviews the code, research notes, figures, and references, then asks you to confirm the active programs, research progress, and proposed changes before writing or moving any files. Running the skill again follows the same review process. |
 
 ## Quick start
 
@@ -39,11 +39,19 @@ research-project/
 ├── PROG_temp/         Exploratory programs and experiments
 │   └── output/        Results produced by those experiments
 ├── output/            Project deliverables, such as meeting notes
+├── figures/           Selected project figures for manuscripts and reports
+├── references/        Project literature and supporting references
 ├── AGENTS.md          Working agreements and the active model
-├── CONTEXT.md         Research progress, decisions, and sources
+├── CONTEXT.md         Progress overview, decisions, and links to detailed notes
+├── context/           Optional topic notes, created when needed and approved
+│   └── algorithm-refinement.md
 └── TERMINOLOGY.md     Approved terms and their usage
 ```
 
 When you adopt a new model, the skill can set up `PROG2/` with its own Git history and keep `PROG1/` as a read-only archive. A program in `PROG2/` writes to `PROG2/output/` even when it reads data from `PROG1/`.
+
+Keep the current status and next steps in `CONTEXT.md`. For a substantial topic such as an algorithm refinement, link from the overview to its detailed note in `context/` after you approve the split.
+
+Use `figures/` for selected project figures and `references/` for available project literature. When organizing existing files, the skill proposes destinations and checks manuscript and code references before asking for your approval. Generated originals stay in their program output folders, with selected copies in `figures/` when useful.
 
 To share the skill manually, distribute `README.md`, `LICENSE`, and the complete `initialize-research-workspace/` folder together.
