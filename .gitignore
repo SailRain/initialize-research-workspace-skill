@@ -1,0 +1,18 @@
+# Local maintainer instructions
+/AGENTS.md
+
+# macOS metadata
+.DS_Store
+._*
+.AppleDouble/
+.Spotlight-V100/
+.Trashes/
+
+# Local development environments and caches
+.venv/
+__pycache__/
+.pytest_cache/
+.cache/
+.env
+.env.local
+.env.*.local

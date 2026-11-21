@@ -1,0 +1,48 @@
+---
+name: initialize-research-workspace
+description: Initialize a new research project folder or help its owner organize an existing one. Use for setting up model-specific Git repositories, program output locations, and project documents in the user's language, with a read-only review and owner confirmation for existing workspaces.
+---
+
+# Initialize a research workspace
+
+Work in the research folder the user designates. Resolve the templates relative to this skill and project paths relative to the research folder. If the requested target is ambiguous, establish its location before writing.
+
+## Choose the language of the project documents
+
+Honor an explicit request for the language of the generated documents. Otherwise, infer the user's language from their own conversational messages, including their latest clarification. Filenames, code, pasted papers, and these English templates are weak language signals. If the request is mixed or too short to tell and prior messages give no clear answer, ask which language to use. If an existing project has a conflicting document-language rule, resolve it with the owner during the review.
+
+Write all new project-facing prose in that language, including headings, table labels, examples, instructions, and placeholders such as “To be confirmed.” Preserve literal filenames, paths, Git commands, code identifiers, and scientific symbols. Use the same language for the inventory, confirmation questions, and handoff unless the user requests a different response language. In an existing file, preserve its author's content and wording outside the approved edits. Translating existing passages requires agreement on that change.
+
+## Inspect the folder and choose a route
+
+Inspect the target's directory entries, including hidden entries. Check whether the target is a Git working tree, contains a repository, or lies within an enclosing Git workspace. A `.git` file can identify a linked worktree. For a working-tree check, use `git -C <target> rev-parse --show-toplevel`. If Git is unavailable or the target cannot be inspected reliably, report the missing information before treating it as empty.
+
+**Empty standalone folder.** Take the direct route when the folder is empty or contains only a regular `.DS_Store` file, and it has no existing Git boundary. Preserve the metadata file and carry out these steps once the target and language are clear.
+
+1. Create `PROG1/output/`, `PROG_temp/output/`, and the root `output/`.
+2. Initialize Git inside `PROG1/` with `git -C <target>/PROG1 init`. Leave commits, remote configuration, and publishing to the owner.
+3. Write the three root documents from the templates below. Use `PROG1/` as the active formal directory. Use localized placeholders for unknown project facts. The owner can fill them in later.
+
+**Existing project or Git workspace.** Use this route for every other target, including an initialized project on a repeat visit. Keep the first pass read-only. Inspect existing instructions, research notes, program entry points and dependencies, data and manuscript locations, output conventions, and repository boundaries as needed. Use listings and metadata for large datasets. For Git status, use `git --no-optional-locks -C <target> status --short` to avoid refreshing the index on disk. Keep the inventory and proposed changes in the conversation.
+
+Present the following findings and ask the owner to confirm all three before the first write.
+
+1. **Current programs.** Identify candidate active models and entry points, exploratory code, and historical versions. Cite the evidence and mark unresolved alternatives. Directory numbers and modification times alone cannot establish which model is active.
+2. **Research progress.** Summarize what the available sources support, identify open questions, and distinguish implementation, verification, and inclusion in a manuscript. Ask the owner to confirm, correct, or mark the status as unknown.
+3. **Reorganization plan.** List proposed creations and edits. For each migration, name the source, destination, operation, affected readers or dependencies, and any Git implications. For existing guidance, identify the sections to add or revise. Call out unresolved ownership of data or outputs.
+
+Treat a correction to the inventory as a correction of fact. Apply changes only when the active programs, research status, and actual operations are all confirmed. If the user confirms only part of this, carry that answer forward and ask for the outstanding decision. On the next turn, recheck affected paths before executing the agreed operations. Preserve existing histories, uncommitted work, and owner-authored guidance. If an enclosing repository already tracks a proposed model or exploratory folder, explain that relationship and settle its handling in the plan. A repeat visit that reveals no needed changes ends with a read-only summary.
+
+## Write the workspace documents
+
+Use the following three assets as content templates. Localize them while writing them into the research root. For an existing project, adapt the approved sections to its confirmed directories, sources, and research status. In particular, replace the fresh-project `PROG1/` default with the confirmed current directory.
+
+- [AGENTS.md](assets/templates/AGENTS.md) defines the active model and entry point, program promotion, independent model repositories, output ownership, manuscript sources, verification, and cross-chat maintenance rules.
+- [CONTEXT.md](assets/templates/CONTEXT.md) records confirmed progress and decisions by topic, with evidence, verification status, next steps, and source locations. Seed existing research history with owner-confirmed information only.
+- [TERMINOLOGY.md](assets/templates/TERMINOLOGY.md) records approved terms, wording, usage, and sources. An empty terminology table is appropriate until the owner confirms entries.
+
+The active formal model gets its own numbered repository. Keep exploratory work in `PROG_temp/` until the owner confirms promotion. On an owner-confirmed model switch, create the next formal repository and record the active model explicitly. Earlier numbered directories then serve as read-only archives. Every producing program writes to its own directory's `output/`, including an exploratory program or a program that reads inputs from an older model. Project-level deliverables prepared outside program runs go into the root `output/`.
+
+## Verify and hand off
+
+Check the resulting structure against the approved changes. For each formal repository, compare the resolved path from `git -C <model> rev-parse --show-toplevel` with the model directory itself. Check that `PROG_temp/` has no independent repository and that the applicable output directories exist. Confirm the documents use the chosen language and reference the correct active model. Report the actual changes, output locations, and unresolved decisions. Identify any validation that could not be completed.
