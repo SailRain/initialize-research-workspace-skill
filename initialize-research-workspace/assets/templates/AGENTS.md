@@ -48,8 +48,14 @@ Keep generated originals in the producing program's output directory and place s
 - Before reviewing or editing a manuscript, locate the designated project and its current saved source. Edit within the owner's requested scope. For layout changes, inspect the affected pages of the resulting document.
 - Verify precise values and parameters against the designated programs and original data. Use literature for definitions, methods, and related work. If a manuscript, program, dataset, or historical record disagrees with another source, identify the specific discrepancy for the owner.
 - Report what actually took place, such as static review, a program run, numerical verification, simulation, or a physical experiment. Record verification status and inclusion in the current manuscript separately.
-- Read [CONTEXT.md](CONTEXT.md) for overall research progress, major decisions, and next steps. For a topic with a substantial history, propose a dedicated Markdown note under `context/` and keep a short summary and a relative link in the overview. Create the directory when the first note is needed and approved. Read the linked note when the task requires its details.
-- Before closing a conversation with a lasting development, propose the specific additions, revisions, or retirements and their evidence. Update the overview and any affected notes only after the owner explicitly agrees to those changes.
 - Consult [TERMINOLOGY.md](TERMINOLOGY.md) when preparing project materials. Before registering a new term or revising an approved expression, present the source term, context, proposed wording, and source for the owner's approval.
 - Use the recipient's preferred language for project documents and the language requested for each deliverable. Preserve filenames, paths, commands, code identifiers, and scientific symbols when localizing text.
-- Update this file when long-term agreements or the project register change. Record individual research developments in the research log and locate technical details through its source index.
+- Update this file when long-term agreements or the project register change.
+
+## Research records
+
+- Read [CONTEXT.md](CONTEXT.md) for overall progress, major decisions, and next steps. Follow links to detailed records when the task requires them.
+- Create a detailed Markdown record when the project needs one. Choose a name, structure, and location that fit the work. Keep records about a program, simulator project, or asset near it. Use `context/` when it provides a natural home for a broader topic. Create that directory when the first record there is needed and approved.
+- Reuse existing Markdown where it already serves the purpose. When it helps people navigate existing files, add a Markdown entry point that links to material in its original format, such as a CSV, YAML file, or generated log.
+- Add a relative link from the relevant entry in `CONTEXT.md` for project-wide work or from a directory's existing documentation for local details. Link to the record once it exists.
+- Propose significant additions, revisions, or moves and identify the supporting sources. Update the overview, detailed records, and affected links after the owner approves the changes.

@@ -16,7 +16,7 @@
 | Your starting point | What Codex does |
 | --- | --- |
 | **An empty research folder** | Creates a Git repository for the first model, folders for experiments, simulations, figures, and references, and three project documents in your language. |
-| **An existing project** | Reviews the code, simulation projects, research notes, figures, and references, then asks you to confirm the active programs, research progress, and proposed changes before writing or moving any files. Running the skill again follows the same review process. |
+| **An existing project** | Reviews the code, simulation projects, research records, figures, and references, then asks you to confirm the active programs, research progress, and proposed changes before writing or moving any files. Running the skill again follows the same review process. |
 
 ## Quick start
 
@@ -45,10 +45,9 @@ research-project/
 ├── output/            Project deliverables, such as meeting notes
 ├── figures/           Selected project figures for manuscripts and reports
 ├── references/        Project literature and supporting references
-├── AGENTS.md          Working agreements and the active model
-├── CONTEXT.md         Progress overview, decisions, and links to detailed notes
-├── context/           Optional topic notes, created when needed and approved
-│   └── algorithm-refinement.md
+├── AGENTS.md          Working agreements, active model, and record guidance
+├── CONTEXT.md         Progress overview, decisions, and links to detailed records
+├── context/           Optional home for project-wide or cross-topic records
 └── TERMINOLOGY.md     Approved terms and their usage
 ```
 
@@ -56,7 +55,7 @@ When you adopt a new model, the skill can set up `PROG2/` with its own Git histo
 
 Use `simulation/` for schematics, netlists, and tool-specific scripts. Create a subfolder for each simulator you use and keep each project with its dependencies. Manage general MATLAB or Python code in the appropriate `PROG*` directory. When reorganizing an existing simulation project, the skill checks its dependencies and proposes moves for your approval.
 
-Keep the current status and next steps in `CONTEXT.md`. For a substantial topic such as an algorithm refinement, link from the overview to its detailed note in `context/` after you approve the split.
+Keep the current status and next steps in `CONTEXT.md`. The skill sets up instructions for keeping records in `AGENTS.md` and a place to link them from `CONTEXT.md`. As the need arises, keep a detailed Markdown record near the work it describes and link it from the relevant project document. For example, a cross-model decision can live in `context/`, and a figure provenance note can live in `figures/`. For an existing project, the skill proposes how to reuse or organize existing records for your approval.
 
 Use `figures/` for selected project figures and `references/` for available project literature. When organizing existing files, the skill proposes destinations and checks manuscript and code references before asking for your approval. Generated originals stay in their program output folders, with selected copies in `figures/` when useful.
 

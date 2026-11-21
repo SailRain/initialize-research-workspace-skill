@@ -1,6 +1,6 @@
 # Research progress and decisions
 
-Keep this overview concise. Organize entries by research topic or manuscript and record current status, major decisions, and agreed next steps. Follow the relevant topic link when more detail is needed.
+Keep this overview concise. Organize entries by research topic or manuscript and record current status, major decisions, and agreed next steps. Follow the relevant record link when more detail is needed.
 
 ## Topic and current status
 
@@ -16,14 +16,14 @@ Keep this overview concise. Organize entries by research topic or manuscript and
 
 Summarize developments, advisor or reviewer feedback, decisions, and corrections that affect future research. Identify who proposed or decided an item and what was verified. Distinguish an idea, an implemented program, a numerical result, a physical experiment, and inclusion in the manuscript when these have different statuses.
 
-| Date | Topic or detailed note | Development, decision, or correction and its basis | Verification status | Next step | Source reference |
+| Date | Topic or detailed record | Development, decision, or correction and its basis | Verification status | Next step | Source reference |
 | --- | --- | --- | --- | --- | --- |
 
-## Detailed topic notes
+## Detailed records
 
-When a topic needs a fuller record, propose a dedicated Markdown file in the optional `context/` directory. After the owner approves, summarize the topic in the overview and link to the note from its entry. A link to a created note could look like `[Algorithm refinement](context/algorithm-refinement.md)`.
+When an existing detailed record helps explain the current status, a decision, or a next step, add a relative link from the corresponding overview entry. Use this section for records that support multiple entries. Add links as records become available.
 
-Record the detailed chronology, rationale, alternatives considered, evidence, verification, and open questions in the note. Carry over source references when moving approved details from this overview. Use paths relative to the note for any local links it contains.
+Place new Markdown records where the relevant work lives or use `context/` for broader topics. Choose the filename and contents to fit the topic. Preserve source references when consolidating approved details and use paths relative to the record for local links.
 
 ## Source index
 
@@ -34,4 +34,4 @@ Give each source a short identifier. Record the program, dataset, manuscript sec
 
 ## Maintenance
 
-When significant progress, a decision, a change of direction, or a correction warrants an update, propose the specific overview and topic-note entries to add, revise, or retire and identify the supporting sources. Update the affected entries, current status, and links after the project owner explicitly confirms.
+When significant progress, a decision, a change of direction, or a correction warrants an update, propose the overview entries and detailed records to add, revise, or retire. Identify the supporting sources. Update the affected entries, current status, and links after the project owner explicitly confirms.
