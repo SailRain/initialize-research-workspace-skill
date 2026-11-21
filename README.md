@@ -4,8 +4,8 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-97CA00?style=flat" alt="MIT license" /></a>
-  <a href="#workspace-layout"><img src="https://img.shields.io/badge/Git-per%20model-FE7D37?style=flat" alt="Git repository per model" /></a>
-  <a href="initialize-research-workspace/SKILL.md"><img src="https://img.shields.io/badge/Codex-skill-007EC6?style=flat" alt="Codex skill" /></a>
+  <a href="#workspace-layout"><img src="https://img.shields.io/badge/Research-Initializer-FE7D37?style=flat" alt="Research Initializer" /></a>
+  <a href="initialize-research-workspace/SKILL.md"><img src="https://img.shields.io/badge/AI%20agent-skill-007EC6?style=flat" alt="AI agent skill" /></a>
   <a href="https://sailrain.github.io/"><img src="https://img.shields.io/badge/A%20SailRain-work-00897B?style=flat" alt="A SailRain work" /></a>
 </p>
 
