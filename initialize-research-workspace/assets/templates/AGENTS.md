@@ -55,7 +55,9 @@ Keep generated originals in the producing program's output directory and place s
 ## Research records
 
 - Read [CONTEXT.md](CONTEXT.md) for overall progress, major decisions, and next steps. Follow links to detailed records when the task requires them.
+- Before wrapping up research work, check for substantive progress, results, decisions, changes in direction, or corrections worth preserving. Propose the exact additions, revisions, or removals to `CONTEXT.md`, cite the supporting sources, and ask the owner whether to apply them. Update only the approved entries. Skip the prompt for routine work with no substantive developments.
+- Record the owner's confirmed logging preferences in this section, including what to record, when to propose updates, and where to keep the records. Apply those preferences in future tasks.
 - Create a detailed Markdown record when the project needs one. Choose a name, structure, and location that fit the work. Keep records about a program, simulator project, or asset near it. Use `context/` when it provides a natural home for a broader topic. Create that directory when the first record there is needed and approved.
 - Reuse existing Markdown where it already serves the purpose. When it helps people navigate existing files, add a Markdown entry point that links to material in its original format, such as a CSV, YAML file, or generated log.
 - Add a relative link from the relevant entry in `CONTEXT.md` for project-wide work or from a directory's existing documentation for local details. Link to the record once it exists.
-- Propose significant additions, revisions, or moves and identify the supporting sources. Update the overview, detailed records, and affected links after the owner approves the changes.
+- Propose significant additions, revisions, or moves to detailed records and identify the supporting sources. Update the records and affected links after the owner approves the changes.

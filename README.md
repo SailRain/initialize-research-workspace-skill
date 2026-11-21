@@ -18,6 +18,8 @@
 | **An empty research folder** | Creates a Git repository for the first model, folders for experiments, simulations, figures, and references, and three project documents in your language. |
 | **An existing project** | Reviews the code, simulation projects, research records, figures, and references, then asks you to confirm the active programs, research progress, and proposed changes before writing or moving any files. Running the skill again follows the same review process. |
 
+After setting up the layout or completing approved changes, the skill reviews the workspace again in read-only mode. In the same handoff, it shares any useful follow-up suggestions and asks about ongoing logging preferences if you have yet to set them. You choose which changes to apply and what, when, and where to record. The project's `AGENTS.md` carries those working agreements into future tasks.
+
 ## Quick start
 
 1. Download and extract the [source ZIP](https://github.com/SailRain/initialize-research-workspace-skill/archive/refs/heads/main.zip). Git must be installed to create the model repositories.
@@ -55,7 +57,7 @@ When you adopt a new model, the skill can set up `PROG2/` with its own Git histo
 
 Use `simulation/` for schematics, netlists, and tool-specific scripts. Create a subfolder for each simulator you use and keep each project with its dependencies. Manage general MATLAB or Python code in the appropriate `PROG*` directory. When reorganizing an existing simulation project, the skill checks its dependencies and proposes moves for your approval.
 
-Keep the current status and next steps in `CONTEXT.md`. The skill sets up instructions for keeping records in `AGENTS.md` and a place to link them from `CONTEXT.md`. As the need arises, keep a detailed Markdown record near the work it describes and link it from the relevant project document. For example, a cross-model decision can live in `context/`, and a figure provenance note can live in `figures/`. For an existing project, the skill proposes how to reuse or organize existing records for your approval.
+Keep the current status and next steps in `CONTEXT.md`. The generated `AGENTS.md` explains when to propose a progress update and records any logging preferences you confirm. As the need arises, keep a detailed Markdown record near the work it describes and link it from the relevant project document. For example, a cross-model decision can live in `context/`, and a figure provenance note can live in `figures/`. For an existing project, the skill proposes how to reuse or organize existing records for your approval.
 
 Use `figures/` for selected project figures and `references/` for available project literature. When organizing existing files, the skill proposes destinations and checks manuscript and code references before asking for your approval. Generated originals stay in their program output folders, with selected copies in `figures/` when useful.
 

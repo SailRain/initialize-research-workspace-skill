@@ -1,9 +1,11 @@
 ---
 name: initialize-research-workspace
-description: Initialize a new research project folder or help its owner organize an existing one. Use for setting up model-specific Git repositories, program output locations, and project documents in the user's language, with a read-only review and owner confirmation for existing workspaces.
+description: Initialize a new research workspace or organize an existing one, and establish reusable working agreements for future research. Set up model-specific Git repositories, program output locations, and project documents in the user's language, with a read-only review and owner confirmation for existing workspaces.
 ---
 
 # Initialize a research workspace
+
+Set up or organize the research folder and leave a reusable workflow that the owner and future agents can follow during daily research. Write enduring working agreements in the project's own `AGENTS.md`.
 
 Work in the research folder the user designates. Resolve the templates relative to this skill and project paths relative to the research folder. If the requested target is ambiguous, establish its location before writing.
 
@@ -50,7 +52,7 @@ Identify the simulator from project metadata and companion files. Ask the owner 
 
 Use the following three assets as content templates. Localize them while writing them into the research root. For an existing project, adapt the approved sections to its confirmed directories, sources, and research status. In particular, replace the fresh-project `PROG1/` default with the confirmed current directory.
 
-- [AGENTS.md](assets/templates/AGENTS.md) defines the active model and entry point, program promotion, independent model repositories, output ownership, manuscript sources, verification, and cross-chat maintenance rules.
+- [AGENTS.md](assets/templates/AGENTS.md) defines the active model and entry point, program promotion, independent model repositories, output ownership, manuscript sources, verification, and cross-chat maintenance rules. Carry over the research-task closeout rule so future agents propose recording substantive progress in `CONTEXT.md` during ordinary research work.
 - [CONTEXT.md](assets/templates/CONTEXT.md) summarizes confirmed progress, key decisions, verification status, next steps, and sources by topic. Seed existing research history with owner-confirmed information only.
 - [TERMINOLOGY.md](assets/templates/TERMINOLOGY.md) records approved terms, wording, usage, and sources. An empty terminology table is appropriate until the owner confirms entries.
 
@@ -67,3 +69,11 @@ Link project-wide progress entries in `CONTEXT.md` to their detailed records wit
 ## Verify and hand off
 
 Check the resulting structure against the approved changes. For each formal repository, compare the resolved path from `git -C <model> rev-parse --show-toplevel` with the model directory itself. Check that `PROG_temp/` has no independent repository and that the applicable output directories exist. Check that `figures/`, `references/`, and `simulation/` exist on fresh setups and where approved for existing projects. Verify that moved or copied assets are in their approved destinations, including simulator projects under the correct software folders. Check that dependent paths still resolve and original program outputs remain in place. Resolve new links from the containing document to verify that they reach the intended records and sources. Confirm the documents use the chosen language and reference the correct active model. Report the actual changes, output locations, and unresolved decisions. Identify any validation that could not be completed.
+
+### Review remaining opportunities
+
+After creating the baseline layout or carrying out the approved reorganization, make a focused read-only pass over the resulting workspace. Look for remaining loose files and groups that could be easier to find or reuse. Check program inputs and outputs, project notes, and manuscript references when they can clarify how related files are used. Treat matching names as leads and respect decisions to keep files in place.
+
+Include the most useful follow-up suggestions in the handoff. Name the actual files or groups, why the change would help, and any proposed destination, move or copy, and affected dependencies. Ask focused questions when the active version, origin, or use is unclear. For a new project, offer a project-specific addition only when its known needs suggest one. Ask the owner to select or approve any newly proposed operations before applying them.
+
+In the same handoff, ask what the owner wants to log if their preferences are unknown. Offer examples drawn from the project, such as significant code changes, formal runs, or provenance for selected figures, and let the owner defer the choice. Reuse established preferences and record confirmed choices in the project `AGENTS.md`, including when records are useful and where to keep them. Keep the workspace usable while preferences are pending and create detailed records when there is material to record.
