@@ -22,7 +22,7 @@ Inspect the target's directory entries, including hidden entries. Check whether 
 **Empty standalone folder.** Take the direct route when the folder is empty or contains only a regular `.DS_Store` file, and it has no existing Git boundary. If the owner asks to see a plan first, show the proposed directory tree and wait for confirmation before making changes. Otherwise, carry out these steps once the target and language are clear. Preserve the metadata file and include a directory tree of the actual layout in the handoff.
 
 1. Create `PROG1/output/`, `PROG_temp/output/`, and the root `output/`, `figures/`, `references/`, and `simulation/`. Add simulator subdirectories only for software the project uses.
-2. Initialize Git inside `PROG1/` with `git -C <target>/PROG1 init`. Leave commits, remote configuration, and publishing to the owner.
+2. Initialize Git inside `PROG1/` with `git -C <target>/PROG1 init`. Add an anchored `/output/` rule to `PROG1/.gitignore`. Leave commits, remote configuration, and publishing to the owner.
 3. Write the three root documents from the templates below. Use `PROG1/` as the active formal directory. Use localized placeholders for unknown project facts. Include the recordkeeping guidance in `AGENTS.md` and the instructions in `CONTEXT.md` for linking progress entries to detailed records as they are created.
 
 **Existing project or Git workspace.** Use this route for every other target, including an initialized project on a repeat visit. Keep the first pass read-only. Inspect existing instructions, research records and scattered notes, program entry points and dependencies, simulator projects, data and manuscript locations, project figures and literature, output conventions, and repository boundaries as needed. Follow relevant links in project and directory documents to locate existing records. Use listings and metadata for large datasets. For Git status, use `git --no-optional-locks -C <target> status --short` to avoid refreshing the index on disk. Keep the inventory and proposed changes in the conversation.
@@ -60,7 +60,9 @@ Use the following three assets as content templates. Localize them while writing
 - [CONTEXT.md](assets/templates/CONTEXT.md) summarizes confirmed progress, key decisions, verification status, next steps, and sources by topic. Seed existing research history with owner-confirmed information only.
 - [TERMINOLOGY.md](assets/templates/TERMINOLOGY.md) records approved terms, wording, usage, and sources. An empty terminology table is appropriate until the owner confirms entries.
 
-The active formal model gets its own numbered repository. Keep exploratory work in `PROG_temp/` until the owner confirms promotion. On an owner-confirmed model switch, create the next formal repository and record the active model explicitly. Earlier numbered directories then serve as read-only archives. Every producing program writes to its own directory's `output/`, including an exploratory program or a program that reads inputs from an older model. Project-level deliverables prepared outside program runs go into the root `output/`.
+The active formal model gets its own numbered repository. Keep exploratory work in `PROG_temp/` until the owner confirms promotion. On an owner-confirmed model switch, create the next formal repository with its own `/output/` ignore rule and record the active model explicitly. Earlier numbered directories then serve as read-only archives. Every producing program writes to its own directory's `output/`, including an exploratory program or a program that reads inputs from an older model. Project-level deliverables prepared outside program runs go into the root `output/`.
+
+Use Git to version model source and supporting files. Keep generated results inside each numbered model's `output/` and ignore that directory in the repository that manages the model. For existing projects, inspect the effective ignore rules and check for tracked outputs before proposing changes. Include any missing rule in the reorganization plan. Preserve existing ignore entries. For a project using one root repository, use a root-relative rule for each affected model, such as `/PROG1/output/`. If outputs are already tracked, explain that the rule protects only untracked artifacts. Propose removing the affected entries from the Git index while preserving their files and commit history, and wait for explicit approval of that operation.
 
 ## Organize research records
 
@@ -73,6 +75,8 @@ Link project-wide progress entries in `CONTEXT.md` to their detailed records wit
 ## Verify and hand off
 
 Check the resulting structure against the approved changes. For each formal repository, compare the resolved path from `git -C <model> rev-parse --show-toplevel` with the model directory itself. Check that `PROG_temp/` has no independent repository and that the applicable output directories exist. Check that `figures/`, `references/`, and `simulation/` exist on fresh setups and where approved for existing projects. Verify that moved or copied assets are in their approved destinations, including simulator projects under the correct software folders. Check that dependent paths still resolve and original program outputs remain in place. Resolve new links from the containing document to verify that they reach the intended records and sources. Confirm the documents use the chosen language and reference the correct active model. Report the actual changes, output locations, and unresolved decisions. Identify any validation that could not be completed.
+
+Use `git check-ignore` to verify changed output ignore rules and `git ls-files` to detect outputs that are still tracked. Run both checks in the repository that manages the model.
 
 ### Review remaining opportunities
 

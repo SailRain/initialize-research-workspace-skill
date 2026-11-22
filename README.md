@@ -39,7 +39,8 @@ If Codex is open in another folder, include the project path in your request. Yo
 ```text
 research-project/
 ├── PROG1/             First formal model, with its own Git repository
-│   └── output/        Results produced by this model's programs
+│   ├── .gitignore     Excludes the model's output directory
+│   └── output/        Generated results, ignored by Git
 ├── PROG_temp/         Exploratory programs and experiments
 │   └── output/        Results produced by those experiments
 ├── simulation/        Simulator projects and their required files
@@ -56,6 +57,8 @@ research-project/
 ```
 
 When you adopt a new model, the skill can set up `PROG2/` with its own Git history and keep `PROG1/` as a read-only archive. A program in `PROG2/` writes to `PROG2/output/` even when it reads data from `PROG1/`.
+
+Each new model repository has a `.gitignore` with `/output/` so Git can track the code while generated figures, files, and data stay local. For an existing project, the skill proposes an ignore rule in the Git repository that manages the model. If Git already tracks output files, the skill identifies them and asks for approval before removing them from the index. The files stay on disk, and their earlier commits remain in the repository.
 
 Use `simulation/` for schematics, netlists, and tool-specific scripts. Create a subfolder for each simulator you use and keep each project with its dependencies. Manage general MATLAB or Python code in the appropriate `PROG*` directory. When reorganizing an existing simulation project, the skill checks its dependencies and proposes moves for your approval.
 
