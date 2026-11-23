@@ -56,9 +56,11 @@ research-project/
 └── TERMINOLOGY.md     Approved terms and their usage
 ```
 
-When you adopt a new model, the skill can set up `PROG2/` with its own Git history and keep `PROG1/` as a read-only archive. A program in `PROG2/` writes to `PROG2/output/` even when it reads data from `PROG1/`.
+When you adopt a new model, the skill can set up `PROG2/` with its own Git history and keep `PROG1/` as a read-only archive. A new program in `PROG2/` resolves its default output path relative to the program file, so it writes to `PROG2/output/` even when launched from another working directory.
 
-Each new model repository has a `.gitignore` with `/output/` so Git can track the code while generated figures, files, and data stay local. For an existing project, the skill proposes an ignore rule in the Git repository that manages the model. If Git already tracks output files, the skill identifies them and asks for approval before removing them from the index. The files stay on disk, and their earlier commits remain in the repository.
+For an existing project, the skill checks the origin and use of candidate outputs in read-only mode. It proposes confirmed moves to the producing model's `output/` and lists any references that need updating. Approved moves and reference updates are applied together. Inputs and files of uncertain origin stay in place.
+
+Each new model repository has a `.gitignore` with `/output/` so Git can track the code while generated figures, files, and data stay local. For a confirmed output that must stay elsewhere, the skill proposes an exact ignore path in the repository that manages it. For example, use `/bifur.mat` in an independent `PROG2/` repository or `/PROG2/bifur.mat` in a shared project repository. Path-specific rules preserve the project's tracking rules for `.mat` inputs. If Git already tracks an output file, removing it from the index requires explicit approval. The file stays on disk, and its earlier commits remain in the repository.
 
 Use `simulation/` for schematics, netlists, and tool-specific scripts. Create a subfolder for each simulator you use and keep each project with its dependencies. Manage general MATLAB or Python code in the appropriate `PROG*` directory. When reorganizing an existing simulation project, the skill checks its dependencies and proposes moves for your approval.
 

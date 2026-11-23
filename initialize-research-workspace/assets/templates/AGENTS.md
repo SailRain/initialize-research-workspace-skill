@@ -21,6 +21,7 @@ Resolve local paths relative to this project root. Update this register when the
 - Start with `PROG1/` for the first formal model. When the owner confirms adoption of a new model, create the next numbered directory and update the register. Use the model's own Git history for routine revisions within the same model.
 - Each numbered formal directory is an independent local Git repository. Keep `PROG_temp/` free of a repository of its own. Preserve existing repositories and their histories. The owner decides when to make an initial commit, configure remotes, or push.
 - Use Git to version the model's code. Add `/output/` to the root `.gitignore` of each new numbered model repository, keeping generated figures, files, and data on disk. If the project repository manages a model directly, use a rule anchored to that model's actual output path, such as `/PROG1/output/`. Include any proposed ignore-rule changes for an existing project in the plan for owner approval. For outputs that Git already tracks, ask the owner to approve removal from the index and preserve the files on disk and the existing history.
+- If a confirmed generated file must stay outside `output/` because of a tool or a path dependency, use an exact ignore path anchored to the repository that manages it. For example, use `/bifur.mat` in an independent `PROG2/` repository or `/PROG2/bifur.mat` in a shared project repository. Keep the project's existing tracking rules for input files, including `.mat` inputs.
 - After switching models, treat earlier formal directories as read-only archives. Use the program's own directory and dependencies when running it. If the owner explicitly requests work on an archived version, follow the requested path and scope.
 
 ## Data, assets, and deliverables
@@ -34,7 +35,9 @@ Resolve local paths relative to this project root. Update this register when the
 | Selected project figures for manuscripts, presentations, and reports | `figures/` at the project root |
 | Available project literature and supporting references | `references/` at the project root |
 
-The producing program determines the output location. For example, a program in `PROG2/` that reads data from an older model writes its results to `PROG2/output/`. Keep source data at its recorded location. Resolve output paths relative to the program so the same entry point works when launched elsewhere.
+Resolve a new program's default output path relative to the program file. For example, `PROG2/bifurcation_diagram.m` writes `PROG2/output/bifur.mat` even when launched from another working directory or when reading data from an older model.
+
+Before reorganizing existing files, check their origin and use in read-only mode. Look for supporting scripts, run records, or dependencies, and ask the owner when needed. Show confirmed generated files in the proposed tree at their destination in the producing model's `output/`, with any affected references listed in the plan. Apply approved moves and reference updates together. Keep inputs and files of uncertain origin in place.
 
 Create tool folders such as `simulation/LTspice/`, `simulation/Multisim/`, and `simulation/PSpice/` when the project uses those simulators. Keep each project with its required models, libraries, settings, and scripts. Manage general MATLAB and Python code under the applicable `PROG*` directory.
 
