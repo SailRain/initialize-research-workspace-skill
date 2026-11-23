@@ -9,6 +9,8 @@
   <a href="https://sailrain.github.io/"><img src="https://img.shields.io/badge/A%20SailRain-work-00897B?style=flat" alt="A SailRain work" /></a>
 </p>
 
+<p align="center"><strong>English</strong> · <a href="README.zh-CN.md">简体中文</a></p>
+
 ---
 
 ## How it works
