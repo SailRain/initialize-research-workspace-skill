@@ -9,6 +9,8 @@ Set up or organize the research folder and leave a reusable workflow that the ow
 
 Work in the research folder the user designates. Resolve the templates relative to this skill and project paths relative to the research folder. If the requested target is ambiguous, establish its location before writing.
 
+Apply the chat citation rule in the [project working agreements template](assets/templates/AGENTS.md#research-records) whenever a reply during initialization or reorganization draws on prior research records, including the initial read-only inventory.
+
 ## Choose the language of the project documents
 
 Honor an explicit request for the language of the generated documents. Otherwise, infer the user's language from their own conversational messages, including their latest clarification. Filenames, code, pasted papers, and these English templates are weak language signals. If the request is mixed or too short to tell and prior messages give no clear answer, ask which language to use. If an existing project has a conflicting document-language rule, resolve it with the owner during the review.
@@ -56,7 +58,7 @@ Identify the simulator from project metadata and companion files. Ask the owner 
 
 Use the following three assets as content templates. Localize them while writing them into the research root. For an existing project, adapt the approved sections to its confirmed directories, sources, and research status. In particular, replace the fresh-project `PROG1/` default with the confirmed current directory.
 
-- [AGENTS.md](assets/templates/AGENTS.md) defines the active model and entry point, program promotion, independent model repositories, output ownership, manuscript sources, verification, and cross-chat maintenance rules. Carry over the research-task closeout rule so future agents propose recording substantive progress in `CONTEXT.md` during ordinary research work.
+- [AGENTS.md](assets/templates/AGENTS.md) defines the active model and entry point, program promotion, independent model repositories, output ownership, manuscript sources, verification, and cross-chat maintenance rules. Carry over the research-task closeout rule so future agents propose recording substantive progress in `CONTEXT.md` during ordinary research work. Include the chat citation rule in the project's chosen language. When reviewing an existing project, keep equivalent guidance and list any missing parts in the plan for owner approval before adding them.
 - [CONTEXT.md](assets/templates/CONTEXT.md) summarizes confirmed progress, key decisions, verification status, next steps, and sources by topic. Seed existing research history with owner-confirmed information only.
 - [TERMINOLOGY.md](assets/templates/TERMINOLOGY.md) records approved terms, wording, usage, and sources. An empty terminology table is appropriate until the owner confirms entries.
 

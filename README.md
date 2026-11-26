@@ -67,6 +67,10 @@ AGENTS.md.
 
 After uninstalling the skill, open the project root in a new agent session. Ask the agent to read `AGENTS.md` for the current model and working rules, then `CONTEXT.md` for progress, evidence, and next steps. For a paper, report, or presentation, ask it to check `TERMINOLOGY.md` for approved wording.
 
+When a chat reply draws on a research record, the agent cites the entry it used. For example, you might see the following answer about a past validation run.
+
+> The previous run passed numerical validation. Experimental verification was still pending at the time. (`context/model-validation.md`, “Validation status”)
+
 For each task, name the result you want, the scope of the work, and how you will judge the result. Replace the bracketed details in this example with your own.
 
 ```text
